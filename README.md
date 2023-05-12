@@ -1,11 +1,12 @@
-# torobox-self-storage-backend
+# hibernate-bug-session
 
-To run your application:
-```
-./mvnw clean compile exec:java
-```
+To reproduce you can:
 
-To build Docker image:
+Run test:
 ```
-./mvnw clean install
+io.github.pendula95.BugReproducerTest
+```
+Run maven:
+```
+./mvnw clean test
 ```
