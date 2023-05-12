@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+
+    <persistence-unit name="postgresql-datasource-test">
+        <provider>org.hibernate.reactive.provider.ReactivePersistenceProvider</provider>
+
+        <class>io.github.pendula95.TestEntity</class>
+
+        <properties>
+            <!-- The Vert.x SQL Client connection pool size -->
+            <property name="hibernate.connection.pool_size" value="8"/>
+            <!-- Automatic schema export -->
+			<property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+            <!-- SQL statement logging -->
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.session.events.log" value="false"/>
+            <property name="hibernate.generate_statistics" value="true"/>
+
+            <property name="hibernate.vertx.pool.idle_timeout" value="1800000"/>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL9Dialect"/>
+        </properties>
+
+    </persistence-unit>
+</persistence>
